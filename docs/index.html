@@ -88,100 +88,40 @@ description: "Work in progress, building a bird-call identification system."
 
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-5-4bc4ae3b928a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>q <span class="ansi-blue-fg">=</span>  query_box<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">27</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">25</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">20</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">25</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> q<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;recordings&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
 
-<span class="ansi-green-fg">~/Projects/birdsong/birdio/birdio/core.py</span> in <span class="ansi-cyan-fg">query_box</span><span class="ansi-blue-fg">(LAT_MIN, LAT_MAX, LON_MIN, LON_MAX)</span>
-<span class="ansi-green-intense-fg ansi-bold">      9</span> <span class="ansi-red-fg"># Get the first page of results for a query on a given bounding box</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span> <span class="ansi-green-fg">def</span> query_box<span class="ansi-blue-fg">(</span>LAT_MIN <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">180</span><span class="ansi-blue-fg">,</span> LAT_MAX <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">180</span><span class="ansi-blue-fg">,</span> LON_MIN <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">180</span><span class="ansi-blue-fg">,</span> LON_MAX <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">180</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg">     </span>response <span class="ansi-blue-fg">=</span> requests<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#39;https://www.xeno-canto.org/api/2/recordings?query=box:{LAT_MIN},{LON_MIN},{LAT_MAX},{LON_MAX}&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span>     <span class="ansi-green-fg">return</span> response<span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span> 
 
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">get</span><span class="ansi-blue-fg">(url, params, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     73</span> 
-<span class="ansi-green-intense-fg ansi-bold">     74</span>     kwargs<span class="ansi-blue-fg">.</span>setdefault<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;allow_redirects&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 75</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> request<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;get&#39;</span><span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">=</span>params<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     76</span> 
-<span class="ansi-green-intense-fg ansi-bold">     77</span> 
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/requests/api.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(method, url, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     58</span>     <span class="ansi-red-fg"># cases, and look like a memory leak in others.</span>
-<span class="ansi-green-intense-fg ansi-bold">     59</span>     <span class="ansi-green-fg">with</span> sessions<span class="ansi-blue-fg">.</span>Session<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> session<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 60</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> session<span class="ansi-blue-fg">.</span>request<span class="ansi-blue-fg">(</span>method<span class="ansi-blue-fg">=</span>method<span class="ansi-blue-fg">,</span> url<span class="ansi-blue-fg">=</span>url<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     61</span> 
-<span class="ansi-green-intense-fg ansi-bold">     62</span> 
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/requests/sessions.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="ansi-green-intense-fg ansi-bold">    531</span>         }
-<span class="ansi-green-intense-fg ansi-bold">    532</span>         send_kwargs<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span>settings<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 533</span><span class="ansi-red-fg">         </span>resp <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>prep<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>send_kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    534</span> 
-<span class="ansi-green-intense-fg ansi-bold">    535</span>         <span class="ansi-green-fg">return</span> resp
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/requests/sessions.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    644</span> 
-<span class="ansi-green-intense-fg ansi-bold">    645</span>         <span class="ansi-red-fg"># Send the request</span>
-<span class="ansi-green-fg">--&gt; 646</span><span class="ansi-red-fg">         </span>r <span class="ansi-blue-fg">=</span> adapter<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>request<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    647</span> 
-<span class="ansi-green-intense-fg ansi-bold">    648</span>         <span class="ansi-red-fg"># Total elapsed time of the request (approximately)</span>
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/requests/adapters.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="ansi-green-intense-fg ansi-bold">    447</span>                     decode_content<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    448</span>                     retries<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>max_retries<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">--&gt; 449</span><span class="ansi-red-fg">                     </span>timeout<span class="ansi-blue-fg">=</span>timeout
-<span class="ansi-green-intense-fg ansi-bold">    450</span>                 )
-<span class="ansi-green-intense-fg ansi-bold">    451</span> 
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">urlopen</span><span class="ansi-blue-fg">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
-<span class="ansi-green-intense-fg ansi-bold">    598</span>                                                   timeout<span class="ansi-blue-fg">=</span>timeout_obj<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    599</span>                                                   body<span class="ansi-blue-fg">=</span>body<span class="ansi-blue-fg">,</span> headers<span class="ansi-blue-fg">=</span>headers<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">--&gt; 600</span><span class="ansi-red-fg">                                                   chunked=chunked)
-</span><span class="ansi-green-intense-fg ansi-bold">    601</span> 
-<span class="ansi-green-intense-fg ansi-bold">    602</span>             <span class="ansi-red-fg"># If we&#39;re going to release the connection in ``finally:``, then</span>
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">_make_request</span><span class="ansi-blue-fg">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="ansi-green-intense-fg ansi-bold">    341</span>         <span class="ansi-red-fg"># Trigger any extra validation we need to do.</span>
-<span class="ansi-green-intense-fg ansi-bold">    342</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 343</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>_validate_conn<span class="ansi-blue-fg">(</span>conn<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    344</span>         <span class="ansi-green-fg">except</span> <span class="ansi-blue-fg">(</span>SocketTimeout<span class="ansi-blue-fg">,</span> BaseSSLError<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    345</span>             <span class="ansi-red-fg"># Py2 raises this as a BaseSSLError, Py3 raises it as socket timeout.</span>
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/urllib3/connectionpool.py</span> in <span class="ansi-cyan-fg">_validate_conn</span><span class="ansi-blue-fg">(self, conn)</span>
-<span class="ansi-green-intense-fg ansi-bold">    837</span>         <span class="ansi-red-fg"># Force connect early to allow us to validate the connection.</span>
-<span class="ansi-green-intense-fg ansi-bold">    838</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> getattr<span class="ansi-blue-fg">(</span>conn<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;sock&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>  <span class="ansi-red-fg"># AppEngine might not have  `.sock`</span>
-<span class="ansi-green-fg">--&gt; 839</span><span class="ansi-red-fg">             </span>conn<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    840</span> 
-<span class="ansi-green-intense-fg ansi-bold">    841</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> conn<span class="ansi-blue-fg">.</span>is_verified<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/urllib3/connection.py</span> in <span class="ansi-cyan-fg">connect</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    299</span>     <span class="ansi-green-fg">def</span> connect<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    300</span>         <span class="ansi-red-fg"># Add certificate verification</span>
-<span class="ansi-green-fg">--&gt; 301</span><span class="ansi-red-fg">         </span>conn <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_new_conn<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    302</span>         hostname <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>host
-<span class="ansi-green-intense-fg ansi-bold">    303</span> 
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/urllib3/connection.py</span> in <span class="ansi-cyan-fg">_new_conn</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    157</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    158</span>             conn = connection.create_connection(
-<span class="ansi-green-fg">--&gt; 159</span><span class="ansi-red-fg">                 (self._dns_host, self.port), self.timeout, **extra_kw)
-</span><span class="ansi-green-intense-fg ansi-bold">    160</span> 
-<span class="ansi-green-intense-fg ansi-bold">    161</span>         <span class="ansi-green-fg">except</span> SocketTimeout <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/Apps/anaconda3/lib/python3.7/site-packages/urllib3/util/connection.py</span> in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address, socket_options)</span>
-<span class="ansi-green-intense-fg ansi-bold">     68</span>             <span class="ansi-green-fg">if</span> source_address<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     69</span>                 sock<span class="ansi-blue-fg">.</span>bind<span class="ansi-blue-fg">(</span>source_address<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 70</span><span class="ansi-red-fg">             </span>sock<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span>sa<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     71</span>             <span class="ansi-green-fg">return</span> sock
-<span class="ansi-green-intense-fg ansi-bold">     72</span> 
-
-<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;id&#39;: &#39;459459&#39;,
+ &#39;gen&#39;: &#39;Aquila&#39;,
+ &#39;sp&#39;: &#39;rapax&#39;,
+ &#39;ssp&#39;: &#39;&#39;,
+ &#39;en&#39;: &#39;Tawny Eagle&#39;,
+ &#39;rec&#39;: &#39;Raphaël Nussbaumer&#39;,
+ &#39;cnt&#39;: &#39;South Africa&#39;,
+ &#39;loc&#39;: &#39;Kgalagadi Transfrontier Park, Northern Cape&#39;,
+ &#39;lat&#39;: &#39;-26.306&#39;,
+ &#39;lng&#39;: &#39;20.4895&#39;,
+ &#39;alt&#39;: &#39;900&#39;,
+ &#39;type&#39;: &#39;begging call&#39;,
+ &#39;url&#39;: &#39;//www.xeno-canto.org/459459&#39;,
+ &#39;file&#39;: &#39;//www.xeno-canto.org/459459/download&#39;,
+ &#39;file-name&#39;: &#39;XC459459-20181218_070850_Tawny_eagle.mp3&#39;,
+ &#39;sono&#39;: {&#39;small&#39;: &#39;//www.xeno-canto.org/sounds/uploaded/KHGERYPVPK/ffts/XC459459-small.png&#39;,
+  &#39;med&#39;: &#39;//www.xeno-canto.org/sounds/uploaded/KHGERYPVPK/ffts/XC459459-med.png&#39;,
+  &#39;large&#39;: &#39;//www.xeno-canto.org/sounds/uploaded/KHGERYPVPK/ffts/XC459459-large.png&#39;,
+  &#39;full&#39;: &#39;//www.xeno-canto.org/sounds/uploaded/KHGERYPVPK/ffts/XC459459-full.png&#39;},
+ &#39;lic&#39;: &#39;//creativecommons.org/licenses/by-nc-sa/4.0/&#39;,
+ &#39;q&#39;: &#39;B&#39;,
+ &#39;length&#39;: &#39;0:38&#39;,
+ &#39;time&#39;: &#39;07:18&#39;,
+ &#39;date&#39;: &#39;2018-12-18&#39;,
+ &#39;uploaded&#39;: &#39;2019-02-28&#39;,
+ &#39;also&#39;: [&#39;&#39;],
+ &#39;rmk&#39;: &#39;&#39;,
+ &#39;bird-seen&#39;: &#39;unknown&#39;,
+ &#39;playback-used&#39;: &#39;unknown&#39;}</pre>
 </div>
+
 </div>
 
 </div>
@@ -201,6 +141,22 @@ description: "Work in progress, building a bird-call identification system."
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
